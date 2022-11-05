@@ -22,6 +22,9 @@ export default function container() {
 
         <div
           className='stepOne'
+          style={{
+            display: 'none'
+          }}
         >
           <StepOne />
         </div>
@@ -37,9 +40,7 @@ export default function container() {
 
         <div
           className='stepThree'
-          style={{
-            display: 'none'
-          }}
+          
         >
           <StepThree />
         </div>

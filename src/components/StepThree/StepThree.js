@@ -1,29 +1,45 @@
 import './StepThree.css'
 
+function PaymentInfo({ divname, title, holder}){
+  return(
+    <div className={divname}>
+      <label>{title}</label>
+      <input type='text' placeholder={holder} />
+    </div>
+  )
+}
+
 export default function StepThree() {
   return(
     <div className='partThree'>
       <h2 className='partTitle'>付款資訊</h2>
       <div className='paymentInfo'>
-        <div className='cardName'>
-          <label>持卡人姓名</label>
-          <input id='bank-code' type='text' placeholder='John Doe'/>
-        </div>
 
-        <div className='cardId'>
-          <label>卡號</label>
-          <input id='bank-code' type='text' placeholder='1111 2222 3333 4444'/>
-        </div>
+        <PaymentInfo
+          divname='cardName'
+          title='持卡人姓名'
+          holder='John Doe'
+        />
 
-        <div className='cardDateLine'>
-          <label>有效期限</label>
-          <input id='bank-code' type='text' placeholder='MM/YY'/>
-        </div>
+        <PaymentInfo
+          divname='cardId'
+          title='卡號'
+          holder='1111 2222 3333 4444'
+        />
 
-        <div className='cardCvc'>
-          <label>CVC/CCV</label>
-          <input id='bank-code' type='text' placeholder='123'/>
-        </div>
+
+        <PaymentInfo
+          divname='cardDateLine'
+          title='有效期限'
+          holder='MM/YY'
+        />
+
+        <PaymentInfo
+          divname='cardCvc'
+          title='CVC/CCV'
+          holder='123'
+        />
+
       </div>
     </div>
   )

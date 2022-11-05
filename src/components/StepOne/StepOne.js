@@ -1,5 +1,14 @@
 import './StepOne.css'
 
+function Info({divname, title, holder}){
+  return(
+    <div className={divname}>
+      <label>{title}</label>  
+      <input type='text' placeholder={holder} />
+    </div>
+  )
+}
+
 export default function StepOne() {
   return (
     <div className='partOne'>
@@ -14,20 +23,23 @@ export default function StepOne() {
           </div>
         </div>
 
-        <div className='realName'>
-          <label>姓名</label>
-          <input id='bank-code' type='text' placeholder='請輸入姓名'/>
-        </div>
+        <Info
+          divname='realName'
+          title='姓名'
+          holder='請輸入姓名'
+        />
 
-        <div className='mobile'>
-          <label>電話</label>
-          <input id='bank-code' type='text' placeholder='請輸入行動電話'/>
-        </div>
+        <Info
+          divname='mobile'
+          title='電話'
+          holder='請輸入行動電話'
+        />
 
-        <div className='email'>
-          <label>Email</label>
-          <input id='bank-code' type='text' placeholder='請輸入電子郵件'/>
-        </div>
+        <Info
+          divname='email'
+          title='Email'
+          holder='請輸入電子郵件'
+        />
 
         <div className='county'><label>縣市</label>
           <div className='selectWrapper'>
@@ -40,10 +52,11 @@ export default function StepOne() {
           </div>
         </div>
 
-        <div className='address'>
-          <label>地址</label>
-          <input id='bank-code' type='text' placeholder='請輸入地址'/>
-        </div>
+        <Info
+          divname='address'
+          title='地址'
+          holder='請輸入地址'
+        />
       </div>
 
     </div>

@@ -1,0 +1,43 @@
+.partThree {
+  margin-top: 50px;
+  width: 100%;
+  height: 310px;
+}
+
+.partThree label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.partThree input {
+  width: 100%;
+  height: 30px;
+  font-size: 15px;
+}
+
+.paymentInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 158px);
+  grid-gap: 30px;
+  grid-template-areas:
+    "card-name card-name"
+    "card-id card-id"
+    "card-date-line card-cvc";
+}
+
+.cardName {
+  grid-area: card-name;
+}
+
+.cardId {
+  grid-area: card-id;
+}
+
+.cardDateLine {
+  grid-area: card-date-line;
+}
+
+.cardCvc {
+  grid-area: card-cvc;
+}

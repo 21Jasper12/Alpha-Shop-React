@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  padding: 0px 50px;
+}
+
+.sendInfo {
+  flex-basis: 50%;
+}
+
+.shoppingCart {
+  margin-left: 100px;
+  flex-basis: 50%;
+}

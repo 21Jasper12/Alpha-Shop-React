@@ -1,0 +1,58 @@
+.partOne {
+  margin-top: 50px;
+  width: 100%;
+  height: 310px;
+}
+
+.partOne label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.addressDetail {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 30px;
+
+  grid-template-areas:
+    "gender  real-name real-name real-name"
+    "mobile mobile email email"
+    "county  address address address";
+}
+
+.addressDetail input {
+  width: 100%;
+  height: 30px;
+  font-size: 15px;
+}
+
+.addressDetail select {
+  width: 100%;
+  height: 35px;
+  font-size: 15px;
+}
+
+.gender {
+  grid-area: gender;
+}
+
+.realName {
+  grid-area: real-name;
+}
+
+.mobile {
+  grid-area: mobile;
+}
+
+.email {
+  grid-area: email;
+}
+
+.county {
+  grid-area: county;
+}
+
+.address {
+  grid-area: address;
+}

@@ -1,0 +1,30 @@
+.btn button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  height: 110px;
+  margin-top: 20px;
+  padding-top: 24px;
+  border-top: 1px solid #dfdfe4;
+}
+
+.btnPrevious {
+  width: 100px;
+  height: 46px;
+}
+
+.btn .btnNext {
+  position: absolute;
+  left: 400px;
+  width: 174px;
+  height: 46px;
+  background-color: #f67599;
+  color: white;
+  border-radius: 7px;
+}

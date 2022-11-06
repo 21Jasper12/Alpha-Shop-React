@@ -3,6 +3,7 @@ import StepOne from './../StepOne/StepOne'
 import StepTwo from './../StepTwo/StepTwo'
 import StepThree from './../StepThree/StepThree'
 import ProgressControl from './../ProgressControl/ProgressControl'
+import Cart from './../Cart/Cart'
 import './container.css'
 
 
@@ -57,7 +58,7 @@ export default function container() {
       <div
         className='shoppingCart'
       >
-        <h1>TEST</h1>
+        <Cart />
       </div>
     </div>
   )

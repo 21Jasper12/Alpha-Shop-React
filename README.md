@@ -1,5 +1,5 @@
 # 電商平台
-![image](https://github.com/21Jasper12/Alpha-Shop-React/blob/main/public/image/image-hm.jpg)
+![image](https://github.com/21Jasper12/Alpha-Shop-React/blob/main/public/image/image-total-hm.jpg)
 
 ## 介紹
 ---

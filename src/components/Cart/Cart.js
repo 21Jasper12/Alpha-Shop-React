@@ -59,7 +59,7 @@ export default function Cart() {
                   +
                 </button>
               </div>
-              <h5 className="price">${cart.price}</h5>
+              <h5 className="price">${cart.price.toLocaleString()}</h5>
             </li>
           )
         }

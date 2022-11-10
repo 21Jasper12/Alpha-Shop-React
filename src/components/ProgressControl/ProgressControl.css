@@ -6,6 +6,7 @@
 }
 
 .btn {
+  position: relative;
   display: flex;
   height: 110px;
   margin-top: 20px;
@@ -19,7 +20,8 @@
 }
 
 .btn .btnNext {
-  margin-left: 400px;
+  position: absolute;
+  left: 500px;
   width: 174px;
   height: 46px;
   background-color: #f67599;

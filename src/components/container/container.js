@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import StepProgress from './../StepProgress/StepProgress'
 import StepOne from './../StepOne/StepOne'
 import StepTwo from './../StepTwo/StepTwo'
@@ -7,7 +8,18 @@ import Cart from './../Cart/Cart'
 import './container.css'
 
 
-export default function container() {
+
+
+export default function Container() {
+  const [step, setStep] = useState(1)
+  
+  function handlePrevious(){
+    step > 1 && setStep(step - 1)
+  }
+  function handleNext() {
+    step < 3 && setStep(step + 1)
+  }
+
   return(
     <div
       className='container'
@@ -18,13 +30,15 @@ export default function container() {
         <div
           className='stepProgress'
         >
-          <StepProgress />
+          <StepProgress 
+            step={step}
+          />
         </div>
 
         <div
           className='stepOne'
           style={{
-            display: 'none'
+            display: step === 1 ? 'block' : 'none'
           }}
         >
           <StepOne />
@@ -33,7 +47,7 @@ export default function container() {
         <div
           className='stepTwo'
           style={{
-            display: 'none'
+            display: step === 2 ? 'block' : 'none'
           }}
         >
           <StepTwo />
@@ -41,7 +55,9 @@ export default function container() {
 
         <div
           className='stepThree'
-          
+          style={{
+            display: step === 3 ? 'block' : 'none'
+          }}
         >
           <StepThree />
         </div>
@@ -50,7 +66,9 @@ export default function container() {
           className='progressControl'
         >
           <ProgressControl 
-            stepId={1}
+            step={step}
+            onNext={handleNext}
+            onPrevious={handlePrevious}
           />
         </div> 
       </div>

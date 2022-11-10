@@ -2,7 +2,8 @@ import './StepProgress.css'
 
 
 
-export default function StepProgress() {
+export default function StepProgress({ step }) {
+
   return (
     <div>
       <div className='checkedTitle'>
@@ -10,16 +11,16 @@ export default function StepProgress() {
       </div>
 
       <div className='checkedStepper'>
-        <div className='step active'>
+        <div className={step >= 1 ? ('step active ' + (step > 1 ? 'checked' : '')) : 'step'}>
           <div className='circleContainer'></div>
           <div className='labelContainer'>寄送地址</div>
         </div>
-        <div className='step'>
+        <div className={step >= 2 ? ('step active ' + (step > 2 ? 'checked' : '')) : 'step'}>
           <div className='circleContainer'></div>
           <span className='connectLine'></span>
           <div className='labelContainer'>運送方式</div>
         </div>
-        <div className='step'>
+        <div className={step === 3 ? ('step active') : 'step'}>
           <div className='circleContainer'></div>
           <span className='connectLine'></span>
           <div className='labelContainer'>付款資訊</div>

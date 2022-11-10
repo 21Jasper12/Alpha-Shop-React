@@ -1,14 +1,14 @@
 import './ProgressControl.css'
 
-export default function ProgressControl({ stepId }) {
+export default function ProgressControl({ step, onNext, onPrevious }) {
   return (
     <div className="btn computerBtn">
       {
-        stepId === 1 ? null : (<button className="btnPrevious computerPrevious">← 上一步</button>)
+        step === 1 ? null : (<button className="btnPrevious computerPrevious" onClick={onPrevious}>← 上一步</button>)
       }
       {
-        stepId === 3 ? (<button className="btnNext computerNext">送出訂單</button>) :
-          (<button className="btnNext computerNext">下一步 →</button>)
+        step === 3 ? (<button className="btnNext computerNext">確認下單</button>) :
+          (<button className="btnNext computerNext" onClick={onNext}>下一步 →</button>)
       }
     </div>
   )

@@ -27,50 +27,28 @@ export default function Container() {
       <div
         className='sendInfo'
       >
-        <div
-          className='stepProgress'
-        >
-          <StepProgress 
-            step={step}
-          />
-        </div>
+        <StepProgress 
+          step={step}
+        />
+    
+        <StepOne 
+          step={step}
+        />
 
-        <div
-          className='stepOne'
-          style={{
-            display: step === 1 ? 'block' : 'none'
-          }}
-        >
-          <StepOne />
-        </div>
-
-        <div
-          className='stepTwo'
-          style={{
-            display: step === 2 ? 'block' : 'none'
-          }}
-        >
-          <StepTwo />
-        </div>
-
-        <div
-          className='stepThree'
-          style={{
-            display: step === 3 ? 'block' : 'none'
-          }}
-        >
-          <StepThree />
-        </div>
-
-        <div
-          className='progressControl'
-        >
-          <ProgressControl 
-            step={step}
-            onNext={handleNext}
-            onPrevious={handlePrevious}
-          />
-        </div> 
+        <StepTwo 
+          step={step}
+        />
+        
+        <StepThree 
+          step={step}
+        />
+        
+        <ProgressControl 
+          step={step}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+        />
+         
       </div>
 
       <div

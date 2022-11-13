@@ -3,9 +3,7 @@ import Container from './../src/components/container/container'
 
 function App() {
   return (
-    <>
-      <Container />
-    </>
+    <Container />
   );
 }
 

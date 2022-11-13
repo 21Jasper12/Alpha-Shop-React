@@ -5,7 +5,7 @@ import './StepProgress.css'
 export default function StepProgress({ step }) {
 
   return (
-    <div>
+    <div className='stepProgress'>
       <div className='checkedTitle'>
         <h2>結帳</h2>
       </div>

@@ -28,15 +28,13 @@ export default function Container() {
         img: 'https://picsum.photos/300/300?text=1',
         price: 100,
         quantity: 2,
-        count: 0
-      },
+        },
       {
         id: '2',
         name: '貓咪干干',
         img: 'https://picsum.photos/300/300?text=2',
         price: 200,
         quantity: 1,
-        count: 0
       },
     ],
   )

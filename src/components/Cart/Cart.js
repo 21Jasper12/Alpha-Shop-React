@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './Cart.css'
 import { numberWithCommas } from './../utilities'
+import { ProductContext } from './Products'
 
 // data
 const items = [
@@ -26,6 +27,11 @@ const items = [
 export default function Cart() {
   const [products, setProducts] = useState(items)
 
+  const providerValue = {
+    products,
+    setProducts
+  };
+
   const totalCost = numberWithCommas(
     products.reduce((acc, current) => {
       acc += (current.price * current.quantity)
@@ -34,7 +40,8 @@ export default function Cart() {
   )
 
 
-  function ListDetail({ carts }) {
+  function ListDetail() {
+    const { products: carts } = useContext(ProductContext)
     return(
       <ul className="shoppingList">
         {
@@ -102,9 +109,10 @@ export default function Cart() {
       </div>
 
       <div className="shoppingContent">
-        <ListDetail
-          carts={products}
-        />
+        <ProductContext.Provider value={providerValue}>
+          <ListDetail/>
+        </ProductContext.Provider>
+        
         
 
         <div className="transportationFee">

@@ -77,7 +77,6 @@ export default function Cart() {
         return {
           ...product,
           quantity: product.quantity + 1,
-          count: product.quantity * product.price
         }
       }
       else {
@@ -93,7 +92,6 @@ export default function Cart() {
         return {
           ...product,
           quantity: product.quantity - 1,
-          count: product.quantity * product.price
         }
       }
       else {

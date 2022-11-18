@@ -1,6 +1,6 @@
 import './StepThree.css'
 import { useContext } from 'react'
-import { StepThreeContext } from '../container/StepThreeContext'
+import { StepThreeContext } from '../container/ContainerContext'
 
 function PaymentInfo({ divname, title, holder, inputValue, onChange}){
   return(

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StepThreeContext } from './StepThreeContext'
+import { StepThreeContext, CartcountContext } from './ContainerContext'
 import StepProgress from './../StepProgress/StepProgress'
 import StepOne from './../StepOne/StepOne'
 import StepTwo from './../StepTwo/StepTwo'
@@ -20,12 +20,32 @@ export default function Container() {
     cardCvc: ''
   })
 
-  const providerValue = {
-    step,
-    stepThreeData,
-    setStepThreeData
-  }
+  const [cartData, setCartData] = useState(
+    [
+      {
+        id: '1',
+        name: '貓咪罐罐',
+        img: 'https://picsum.photos/300/300?text=1',
+        price: 100,
+        quantity: 2,
+        count: 0
+      },
+      {
+        id: '2',
+        name: '貓咪干干',
+        img: 'https://picsum.photos/300/300?text=2',
+        price: 200,
+        quantity: 1,
+        count: 0
+      },
+    ],
+  )
+
+  const [totalCount, setTotalCount] = useState(0)
+
   
+  
+  // ================================
   // ProgressControl 上一頁
   function handlePrevious(){
     step > 1 && setStep(step - 1)
@@ -42,9 +62,23 @@ export default function Container() {
     }
     else{
       console.log(stepThreeData)
+      console.log(totalCount)
     }
   }
 
+  // 把資料透過useContext的方式傳入components
+  const providerValue = {
+    step,
+    stepThreeData,
+    setStepThreeData,
+  }
+
+  const CartproviderValue = {
+    cartData,
+    setCartData,
+    totalCount, 
+    setTotalCount
+  }
 
 
   return(
@@ -83,7 +117,9 @@ export default function Container() {
       <div
         className='shoppingCart'
       >
-        <Cart />
+        <CartcountContext.Provider value={CartproviderValue}>
+          <Cart />
+        </CartcountContext.Provider>
       </div>
     </div>
   )

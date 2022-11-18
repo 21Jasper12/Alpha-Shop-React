@@ -1,106 +1,109 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import './Cart.css'
-import { numberWithCommas } from './../utilities'
-import { ProductContext } from './Products'
+// import { numberWithCommas } from './../utilities'
+import { CartcountContext } from '../container/ContainerContext'
 
+// 改useContext顯示
 // data
-const items = [
-  {
-    id: '1',
-    name: '貓咪罐罐',
-    img: 'https://picsum.photos/300/300?text=1',
-    price: 100,
-    quantity: 2,
-  },
-  {
-    id: '2',
-    name: '貓咪干干',
-    img: 'https://picsum.photos/300/300?text=2',
-    price: 200,
-    quantity: 1,
-  },
-]
+// const items = [
+//   {
+//     id: '1',
+//     name: '貓咪罐罐',
+//     img: 'https://picsum.photos/300/300?text=1',
+//     price: 100,
+//     quantity: 2,
+//   },
+//   {
+//     id: '2',
+//     name: '貓咪干干',
+//     img: 'https://picsum.photos/300/300?text=2',
+//     price: 200,
+//     quantity: 1,
+//   },
+// ]
 
 
 
 
 export default function Cart() {
-  const [products, setProducts] = useState(items)
+  const { cartData, setCartData, totalCount, setTotalCount } = useContext(CartcountContext)
+  // const totalCost = numberWithCommas(
+  //   cartData.items.reduce((acc, current) => {
+  //     acc += (current.price * current.quantity)
+  //     return acc
+  //   }, 0)
+  // )
 
-  const providerValue = {
-    products,
-    setProducts
-  };
-
-  const totalCost = numberWithCommas(
-    products.reduce((acc, current) => {
-      acc += (current.price * current.quantity)
-      return acc
-    }, 0)
-  )
+  const totalCost = cartData.map(cart => cart.price * cart.quantity).reduce((a, b) => a + b)
 
 
-  function ListDetail() {
-    const { products: carts } = useContext(ProductContext)
+  function ListDetail({ carts, onReduce, onIncrease }) {
+    const list = carts.map(cart =>
+      <li className="listDetail" id={cart.id} key={cart.id}>
+        <img src={cart.img} alt={cart.name} className="shoppingImg" />
+        <h4 className="commodityTitle">{cart.name}</h4>
+        <div className="shoppingBtn">
+          <button
+            className="reduce listBtn"
+            onClick={() => {onReduce(cart.id)}}
+          >
+            -
+          </button>
+
+          <span className="count">{cart.quantity}</span>
+
+          <button
+            className="increase listBtn"
+            onClick={() => {onIncrease(cart.id)}}
+          >
+            +
+          </button>
+        </div>
+        <h5 className="price">${cart.price.toLocaleString()}</h5>
+      </li>
+    )
     return(
       <ul className="shoppingList">
-        {
-          carts.map(cart =>
-            <li className="listDetail" id={cart.id} key={cart.id}>
-              <img src={cart.img} alt={cart.name} className="shoppingImg" />
-              <h4 className="commodityTitle">{cart.name}</h4>
-              <div className="shoppingBtn">
-                <button
-                  className="reduce listBtn"
-                  onClick={() => { reduce(cart.id) }}
-                >
-                  -
-                </button>
-
-                <span className="count">{cart.quantity}</span>
-
-                <button
-                  className="increase listBtn"
-                  onClick={() => { increase(cart.id) }}
-                >
-                  +
-                </button>
-              </div>
-              <h5 className="price">${cart.price.toLocaleString()}</h5>
-            </li>
-          )
-        }
+        {list}
       </ul>
     )
   }
 
+  //=========================== 
+  // cart function
   function increase(productId) {
-    setProducts(products.map(product => {
+    setCartData(cartData.map(product => {
       if (product.id === productId) {
         return {
           ...product,
-          quantity: product.quantity + 1
+          quantity: product.quantity + 1,
+          count: product.quantity * product.price
         }
       }
       else {
         return product
       }
     }))
+    setTotalCount(totalCost)
   }
 
   function reduce(productId) {
-    setProducts(products.map(product => {
+    setCartData(cartData.map(product => {
       if ((product.id === productId) && (product.quantity > 0)) {
         return {
           ...product,
-          quantity: product.quantity - 1
+          quantity: product.quantity - 1,
+          count: product.quantity * product.price
         }
       }
       else {
         return product
       }
     }))
+    setTotalCount(totalCost)
   }
+
+  
 
   return (
     <div className="shoppingContainer">
@@ -109,11 +112,11 @@ export default function Cart() {
       </div>
 
       <div className="shoppingContent">
-        <ProductContext.Provider value={providerValue}>
-          <ListDetail/>
-        </ProductContext.Provider>
-        
-        
+        <ListDetail 
+          carts={cartData}
+          onReduce={reduce}
+          onIncrease={increase}
+        />
 
         <div className="transportationFee">
           <p className="feeTitle">
@@ -125,7 +128,14 @@ export default function Cart() {
         <div className="shoppingTotal">
           <p className="totalTitle">
             小計
-            <span className="total">$<span className="totalPrice">{totalCost}</span></span>
+            <span className="total">
+              $
+              <span 
+                className="totalPrice"
+              >
+                {totalCost.toLocaleString()}
+              </span>
+            </span>
           </p>
         </div>
       </div>

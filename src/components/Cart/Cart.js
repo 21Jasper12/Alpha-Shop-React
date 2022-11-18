@@ -26,7 +26,7 @@ import { CartcountContext } from '../container/ContainerContext'
 
 
 export default function Cart() {
-  const { cartData, setCartData, totalCount, setTotalCount } = useContext(CartcountContext)
+  const { cartData, setCartData, setTotalCount } = useContext(CartcountContext)
   // const totalCost = numberWithCommas(
   //   cartData.items.reduce((acc, current) => {
   //     acc += (current.price * current.quantity)

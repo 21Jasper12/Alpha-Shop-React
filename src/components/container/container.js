@@ -39,7 +39,7 @@ export default function Container() {
     ],
   )
 
-  const [totalCount, setTotalCount] = useState(0)
+  const totalCount= cartData.map(cart => cart.price * cart.quantity).reduce((a, b) => a + b)
 
   
   
@@ -74,8 +74,6 @@ export default function Container() {
   const CartproviderValue = {
     cartData,
     setCartData,
-    totalCount, 
-    setTotalCount
   }
 
 

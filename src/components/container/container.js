@@ -53,7 +53,7 @@ export default function Container() {
     step < 3 && setStep(step + 1)
   }
   // ProgressControl 送出訂單
-  function handleSubmint(){
+  function handleSubmit(){
     if ((!stepThreeData.cardName.length) || (!stepThreeData.cardId.length) || (!stepThreeData.cardDateLine.length) || (!stepThreeData.cardCvc.length)){
       alert('請輸入持卡人資料')
       return
@@ -100,14 +100,12 @@ export default function Container() {
           <StepThree />
         </StepThreeContext.Provider>
         
-        
-        <ProgressControl 
-          step={step}
-          onNext={handleNext}
-          onPrevious={handlePrevious}
-          onSubmit={handleSubmint}
-        />
-         
+          <ProgressControl
+            step={step} 
+            onNext={handleNext}
+            onPrevious={handlePrevious}
+            onSubmit={handleSubmit}
+          />
       </div>
 
       <div

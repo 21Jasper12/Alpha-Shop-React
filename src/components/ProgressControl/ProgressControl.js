@@ -1,6 +1,6 @@
 import './ProgressControl.css'
 
-export default function ProgressControl({ step, onNext, onPrevious, onSubmit}) {
+export default function ProgressControl({step, onPrevious, onNext, onSubmit}) {
   return (
     <div className="btn computerBtn">
       {
@@ -18,7 +18,7 @@ export default function ProgressControl({ step, onNext, onPrevious, onSubmit}) {
         (
           <button 
             className="btnNext computerNext" 
-            onClick={onNext}
+              onClick={onNext}
           >
             下一步 →
           </button>

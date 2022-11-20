@@ -1,9 +1,28 @@
 import './App.css';
-import Container from './../src/components/container/container'
+import Main from './components/Main/main'
+import Cart from './components/Cart/Cart'
 
 function App() {
+  let test = 0
   return (
-    <Container />
+    <div
+      className='container'
+    >
+      <div
+        className='sendInfo'
+      >
+        <Main 
+          tt={test}
+        />
+      </div>
+      <div
+        className='shoppingCart'
+      >
+        <Cart 
+          tt={test}
+        />
+      </div>
+    </div>
   );
 }
 

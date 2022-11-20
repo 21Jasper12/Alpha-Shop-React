@@ -45,7 +45,7 @@ export default function Cart() {
         <div className="shoppingBtn">
           <button
             className="reduce listBtn"
-            onClick={() => {onReduce(cart.id)}}
+            onClick={() => { onReduce(cart.id) }}
           >
             -
           </button>
@@ -54,7 +54,7 @@ export default function Cart() {
 
           <button
             className="increase listBtn"
-            onClick={() => {onIncrease(cart.id)}}
+            onClick={() => { onIncrease(cart.id) }}
           >
             +
           </button>
@@ -62,7 +62,7 @@ export default function Cart() {
         <h5 className="price">${cart.price.toLocaleString()}</h5>
       </li>
     )
-    return(
+    return (
       <ul className="shoppingList">
         {list}
       </ul>
@@ -99,7 +99,7 @@ export default function Cart() {
     }))
   }
 
-  
+
 
   return (
     <div className="shoppingContainer">
@@ -108,7 +108,7 @@ export default function Cart() {
       </div>
 
       <div className="shoppingContent">
-        <ListDetail 
+        <ListDetail
           carts={cartData}
           onReduce={reduce}
           onIncrease={increase}
@@ -126,7 +126,7 @@ export default function Cart() {
             小計
             <span className="total">
               $
-              <span 
+              <span
                 className="totalPrice"
               >
                 {totalCost.toLocaleString()}

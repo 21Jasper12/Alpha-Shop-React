@@ -28,7 +28,7 @@ export default function Container() {
         img: 'https://picsum.photos/300/300?text=1',
         price: 100,
         quantity: 2,
-        },
+      },
       {
         id: '2',
         name: '貓咪干干',
@@ -39,13 +39,13 @@ export default function Container() {
     ],
   )
 
-  const totalCount= cartData.map(cart => cart.price * cart.quantity).reduce((a, b) => a + b)
+  const totalCount = cartData.map(cart => cart.price * cart.quantity).reduce((a, b) => a + b)
 
-  
-  
+
+
   // ================================
   // ProgressControl 上一頁
-  function handlePrevious(){
+  function handlePrevious() {
     step > 1 && setStep(step - 1)
   }
   // ProgressControl 下一頁
@@ -53,12 +53,12 @@ export default function Container() {
     step < 3 && setStep(step + 1)
   }
   // ProgressControl 送出訂單
-  function handleSubmit(){
-    if ((!stepThreeData.cardName.length) || (!stepThreeData.cardId.length) || (!stepThreeData.cardDateLine.length) || (!stepThreeData.cardCvc.length)){
+  function handleSubmit() {
+    if ((!stepThreeData.cardName.length) || (!stepThreeData.cardId.length) || (!stepThreeData.cardDateLine.length) || (!stepThreeData.cardCvc.length)) {
       alert('請輸入持卡人資料')
       return
     }
-    else{
+    else {
       console.log(stepThreeData)
       console.log(totalCount)
     }
@@ -77,35 +77,35 @@ export default function Container() {
   }
 
 
-  return(
+  return (
     <div
       className='container'
     >
       <div
         className='sendInfo'
       >
-        <StepProgress 
-          step={step}
-        />
-    
-        <StepOne 
+        <StepProgress
           step={step}
         />
 
-        <StepTwo 
+        <StepOne
           step={step}
         />
-        
+
+        <StepTwo
+          step={step}
+        />
+
         <StepThreeContext.Provider value={providerValue}>
           <StepThree />
         </StepThreeContext.Provider>
-        
-          <ProgressControl
-            step={step} 
-            onNext={handleNext}
-            onPrevious={handlePrevious}
-            onSubmit={handleSubmit}
-          />
+
+        <ProgressControl
+          step={step}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+          onSubmit={handleSubmit}
+        />
       </div>
 
       <div

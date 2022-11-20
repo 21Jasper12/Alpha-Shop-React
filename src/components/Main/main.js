@@ -9,7 +9,7 @@ import ProgressControl from './../ProgressControl/ProgressControl'
 
 
 
-export default function Main({ tt }) {
+export default function Main() {
   const [step, setStep] = useState(1)
   const [stepThreeData, setStepThreeData] = useState({
     cardName: '',
@@ -35,7 +35,6 @@ export default function Main({ tt }) {
     }
     else {
       console.log(stepThreeData)
-      console.log(tt)
     }
   }
 

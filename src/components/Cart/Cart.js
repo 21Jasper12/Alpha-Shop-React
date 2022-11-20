@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+// import { CartcountContext } from './components/container/ContainerContext'
 import './Cart.css'
 // import { numberWithCommas } from './../utilities'
 
@@ -25,6 +26,7 @@ const items = [
 
 export default function Cart({tt}) {
   const [products, setProducts] = useState(items)
+  // const { test, setTest } = useContext(CartcountContext)
 
   // const totalCost = numberWithCommas(
   //   products.reduce((acc, current) => {
